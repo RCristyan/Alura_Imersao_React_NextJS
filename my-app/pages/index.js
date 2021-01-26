@@ -37,9 +37,10 @@ export default function Home() {
                 </Widget>
 
                 <Widget>
-                    <Widget.Content>
+                    <Widget.Header>
                         <h1>Quizes da galera</h1>
-                        
+                    </Widget.Header>
+                    <Widget.Content>
                         <p>
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                             Voluptatibus, quod suscipit consequuntur nam nesciunt sequi quidem,
