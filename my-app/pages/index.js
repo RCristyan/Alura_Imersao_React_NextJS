@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import React from 'react';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 
 import db from '../db.json';
 import Widget from '../src/components/Widget';
@@ -10,6 +11,9 @@ import QuizContainer from '../src/components/QuizContainer';
 import QuizLogo from '../src/components/QuizLogo';
 
 export default function Home() {
+  const router = useRouter();
+  const [name, setName] = useState('');
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
@@ -23,12 +27,21 @@ export default function Home() {
             <h1>The Legend of Zelda</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Voluptatibus, quod suscipit consequuntur nam nesciunt sequi
-              quidem, incidunt sunt sint adipisci culpa explicabo, rem sed
-              reiciendis quisquam inventore et enim modi.
-            </p>
+            <form onSubmit={(event) => {
+              event.preventDefault();
+              router.push(`/quiz?name=${name}`);
+            }}
+            >
+              <input
+                placeholder="Digite seu nome"
+                onChange={(evento) => {
+                  setName(evento.target.value);
+                }}
+              />
+              <button type="submit" disabled={name.length === 0}>
+                Jogar
+              </button>
+            </form>
           </Widget.Content>
         </Widget>
 
