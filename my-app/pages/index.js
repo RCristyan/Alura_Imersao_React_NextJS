@@ -9,6 +9,7 @@ import Footer from '../src/components/Footer';
 import GithubCorner from '../src/components/GithubCorner';
 import QuizContainer from '../src/components/QuizContainer';
 import QuizLogo from '../src/components/QuizLogo';
+import Input from '../src/components/Input';
 
 export default function Home() {
   const router = useRouter();
