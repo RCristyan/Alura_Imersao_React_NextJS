@@ -7,6 +7,20 @@ import QuizContainer from '../src/components/QuizContainer';
 import QuizLogo from '../src/components/QuizLogo';
 import Widget from '../src/components/Widget';
 
+function LoadingWidget() {
+  return (
+    <Widget>
+      <Widget.Header>
+        Carregando...
+      </Widget.Header>
+
+      <Widget.Content>
+        Desafio do loading
+      </Widget.Content>
+    </Widget>
+  );
+}
+
 function QuizPage() {
   return (
     <QuizBackground>
@@ -40,6 +54,8 @@ function QuizPage() {
             </Button>
           </Widget.Content>
         </Widget>
+
+        <LoadingWidget />
       </QuizContainer>
     </QuizBackground>
   );
