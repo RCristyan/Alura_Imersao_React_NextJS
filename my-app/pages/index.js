@@ -33,11 +33,13 @@ export default function Home() {
               router.push(`/quiz?name=${name}`);
             }}
             >
-              <input
+              <Input
+                name="nomeDoUsuario"
                 placeholder="Digite seu nome"
                 onChange={(evento) => {
                   setName(evento.target.value);
                 }}
+                value={name}
               />
               <button type="submit" disabled={name.length === 0}>
                 Jogar
