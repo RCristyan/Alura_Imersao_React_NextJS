@@ -24,7 +24,7 @@ function ResultWidget({ quizResult }) {
         <ul>
           {
             quizResult.map((result, index) => (
-              <li>
+              <li key={`result_${result}`}>
                 Resultado
                 {` ${index + 1}`}
                 {result === true ? ' acertou' : ' errou'}
