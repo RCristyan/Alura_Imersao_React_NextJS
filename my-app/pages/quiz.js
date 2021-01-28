@@ -5,23 +5,16 @@ import QuestionWidget from '../src/components/QuestionWidget';
 import QuizBackground from '../src/components/QuizBackground';
 import QuizContainer from '../src/components/QuizContainer';
 import QuizLogo from '../src/components/QuizLogo';
-import Widget from '../src/components/Widget';
+import LoadingWidget from '../src/components/LoadingWidget';
 
-function LoadingWidget() {
-  return (
-    <Widget>
-      <Widget.Header>
-        Carregando...
-      </Widget.Header>
-
-      <Widget.Content>
-        Desafio do loading
-      </Widget.Content>
-    </Widget>
-  );
-}
+const screenStates = {
+  loading: 'loading',
+  quiz: 'quiz',
+  result: 'result',
+};
 
 function QuizPage() {
+  const screenState = 'loading';
   const questionIndex = 0;
   const question = db.questions[questionIndex];
   const numberOfQuestions = db.questions.length;
@@ -30,12 +23,17 @@ function QuizPage() {
     <QuizBackground>
       <QuizContainer>
         <QuizLogo />
-        <QuestionWidget
-          question={question}
-          questionIndex={questionIndex}
-          numberOfQuestions={numberOfQuestions}
-        />
-        <LoadingWidget />
+        {screenState === 'quiz' && (
+          <QuestionWidget
+            question={question}
+            questionIndex={questionIndex}
+            numberOfQuestions={numberOfQuestions}
+          />
+        )}
+
+        {screenState === 'loading' && <LoadingWidget />}
+
+        {screenState === 'result' && <div>Você acertou X questões</div>}
       </QuizContainer>
     </QuizBackground>
   );
