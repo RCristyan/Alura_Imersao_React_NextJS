@@ -24,8 +24,11 @@ function QuestionWidget({
         src={question.image}
         alt="Descrição"
         style={{
-          width: '100%',
-          height: '150px',
+          width: '200px',
+          height: '200px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          display: 'block',
           objectFit: 'cover',
         }}
       />
