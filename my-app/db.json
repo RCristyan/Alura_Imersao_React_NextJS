@@ -24,6 +24,18 @@
            "background: linear-gradient(#e66465, #9198e5);",
            "background: gradient(#e66465, #9198e5);"
         ]
+      },
+      {
+        "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/101.png",
+        "title": "Quem é esse Pokémon?",
+        "description": "Armazena energia elétrica dentro do seu corpo. Mesmo o menor choque pode causar uma explosão gigante.",
+        "answer": 0,
+        "alternatives": [
+          "Mudkip",
+          "Voltorb",
+          "Electrode",
+          "Gengar"
+        ]
       }
     ],
     "external": [
