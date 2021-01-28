@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 
 import Widget from '../Widget';
 import Button from '../Button';
+import AlternativesForm from '../AlternativesForm';
 
 function QuestionWidget({
   question,
   questionIndex,
   numberOfQuestions,
   onSubmit,
+  addResult,
 }) {
   const questionId = `question_${questionIndex}`;
   const [selectedAlternative, setSelectedAlternative] = useState(undefined);
@@ -43,11 +45,12 @@ function QuestionWidget({
           {question.description}
         </p>
 
-        <form
+        <AlternativesForm
           onSubmit={(infoDoEvento) => {
             infoDoEvento.preventDefault();
             setIsQuestionSubmited(true);
             setTimeout(() => {
+              addResult(isCorrect);
               onSubmit();
               setIsQuestionSubmited(false);
               setSelectedAlternative(undefined);
@@ -56,12 +59,16 @@ function QuestionWidget({
         >
           {question.alternatives.map((alternative, alternativeIndex) => {
             const alternativeId = `alternative_${alternativeIndex}`;
+            const alternativeStatus = isCorrect ? 'SUCCESS' : 'ERROR';
+            const isSelected = selectedAlternative === alternativeIndex;
 
             return (
               <Widget.Topic
                 as="label"
                 key={alternativeId}
                 htmlFor={alternativeId}
+                data-selected={isSelected}
+                data-status={isQuestionSubmited && alternativeStatus}
               >
                 <input
                 //   style={{ display: 'none' }}
@@ -87,7 +94,7 @@ function QuestionWidget({
             && !isCorrect
             && <p>Você errou!</p>}
 
-        </form>
+        </AlternativesForm>
 
       </Widget.Content>
     </Widget>
