@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Widget from '../Widget';
@@ -11,6 +11,10 @@ function QuestionWidget({
   onSubmit,
 }) {
   const questionId = `question_${questionIndex}`;
+  const [selectedAlternative, setSelectedAlternative] = useState(undefined);
+  const isCorrect = selectedAlternative === question.answer;
+  const [isQuestionSubmited, setIsQuestionSubmited] = useState(false);
+  const hasAlternativeSelected = selectedAlternative !== undefined;
 
   return (
     <Widget>
@@ -42,7 +46,12 @@ function QuestionWidget({
         <form
           onSubmit={(infoDoEvento) => {
             infoDoEvento.preventDefault();
-            onSubmit();
+            setIsQuestionSubmited(true);
+            setTimeout(() => {
+              onSubmit();
+              setIsQuestionSubmited(false);
+              setSelectedAlternative(undefined);
+            }, 1000);
           }}
         >
           {question.alternatives.map((alternative, alternativeIndex) => {
@@ -51,6 +60,7 @@ function QuestionWidget({
             return (
               <Widget.Topic
                 as="label"
+                key={alternativeId}
                 htmlFor={alternativeId}
               >
                 <input
@@ -58,15 +68,25 @@ function QuestionWidget({
                   id={alternativeId}
                   type="radio"
                   name={questionId}
+                  onChange={() => setSelectedAlternative(alternativeIndex)}
                 />
                 {alternative}
               </Widget.Topic>
             );
           })}
 
-          <Button type="submit">
+          <Button type="submit" disabled={!hasAlternativeSelected}>
             Confirmar
           </Button>
+
+          { isQuestionSubmited
+            && isCorrect
+            && <p>Você acertou!</p>}
+
+          { isQuestionSubmited
+            && !isCorrect
+            && <p>Você errou!</p>}
+
         </form>
 
       </Widget.Content>
