@@ -32,9 +32,34 @@ function QuestionWidget({
         <p>
           {question.description}
         </p>
-        <Button type="submit">
-          Confirmar
-        </Button>
+
+        <form action="">
+          {question.alternatives.map((alternative, alternativeIndex) => {
+            const alternativeId = `alternative_${alternativeIndex}`;
+
+            return (
+              <Widget.Topic
+                as="label"
+                htmlFor={alternativeId}
+              >
+                {alternative}
+                <input
+                  id={alternativeId}
+                  type="radio"
+                />
+              </Widget.Topic>
+            );
+          })}
+
+          {/* <pre>
+            {JSON.stringify(question, null, 4)}
+            </pre> */}
+
+          <Button type="submit">
+            Confirmar
+          </Button>
+        </form>
+
       </Widget.Content>
     </Widget>
   );
