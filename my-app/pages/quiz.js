@@ -6,6 +6,7 @@ import QuizBackground from '../src/components/QuizBackground';
 import QuizContainer from '../src/components/QuizContainer';
 import QuizLogo from '../src/components/QuizLogo';
 import LoadingWidget from '../src/components/LoadingWidget';
+import ResultWidget from '../src/components/ResultWidget';
 
 const screenStates = {
   loading: 'loading',
@@ -14,7 +15,8 @@ const screenStates = {
 };
 
 function QuizPage() {
-  const [screenState, setScreenState] = useState(screenStates.loading);
+  const [quizResult, setQuizResult] = useState([true, false, true]);
+  const [screenState, setScreenState] = useState(screenStates.result);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const questionIndex = currentQuestion;
   const question = db.questions[questionIndex];
@@ -22,7 +24,7 @@ function QuizPage() {
 
   useEffect(() => {
     setTimeout(() => {
-      setScreenState(screenStates.quiz);
+      // setScreenState(screenStates.quiz);
     }, 1000);
   }, []);
 
@@ -51,7 +53,7 @@ function QuizPage() {
 
         {screenState === screenStates.loading && <LoadingWidget />}
 
-        {screenState === screenStates.result && <div>Você acertou X questões</div>}
+        {screenState === screenStates.result && <ResultWidget quizResult={quizResult} />}
       </QuizContainer>
     </QuizBackground>
   );
