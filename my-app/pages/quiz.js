@@ -15,16 +15,23 @@ const screenStates = {
 };
 
 function QuizPage() {
-  const [quizResult, setQuizResult] = useState([true, false, true]);
-  const [screenState, setScreenState] = useState(screenStates.result);
+  const [quizResult, setQuizResult] = useState([]);
+  const [screenState, setScreenState] = useState(screenStates.loading);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const questionIndex = currentQuestion;
   const question = db.questions[questionIndex];
   const numberOfQuestions = db.questions.length;
 
+  function addResult(result) {
+    setQuizResult([
+      ...quizResult,
+      result,
+    ]);
+  }
+
   useEffect(() => {
     setTimeout(() => {
-      // setScreenState(screenStates.quiz);
+      setScreenState(screenStates.quiz);
     }, 1000);
   }, []);
 
@@ -48,6 +55,7 @@ function QuizPage() {
             questionIndex={questionIndex}
             numberOfQuestions={numberOfQuestions}
             onSubmit={handleQuizSubmit}
+            addResult={addResult}
           />
         )}
 
