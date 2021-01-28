@@ -1,5 +1,6 @@
 import React from 'react';
 
+import db from '../db.json';
 import QuestionWidget from '../src/components/QuestionWidget';
 import QuizBackground from '../src/components/QuizBackground';
 import QuizContainer from '../src/components/QuizContainer';
@@ -21,11 +22,19 @@ function LoadingWidget() {
 }
 
 function QuizPage() {
+  const questionIndex = 0;
+  const question = db.questions[questionIndex];
+  const numberOfQuestions = db.questions.length;
+
   return (
     <QuizBackground>
       <QuizContainer>
         <QuizLogo />
-        <QuestionWidget />
+        <QuestionWidget
+          question={question}
+          questionIndex={questionIndex}
+          numberOfQuestions={numberOfQuestions}
+        />
         <LoadingWidget />
       </QuizContainer>
     </QuizBackground>

@@ -1,18 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import db from '../../../db.json';
 import Widget from '../Widget';
 import Button from '../Button';
 
-function QuestionWidget() {
-  const question = db.questions[0];
-
+function QuestionWidget({
+  question,
+  questionIndex,
+  numberOfQuestions,
+}) {
   return (
     <Widget>
       <Widget.Header>
         <h3>
-          Pergunta 1 de
-          {` ${db.questions.length}`}
+          {`Pergunta ${questionIndex + 1} de ${numberOfQuestions}`}
         </h3>
       </Widget.Header>
 
@@ -31,12 +32,19 @@ function QuestionWidget() {
         <p>
           {question.description}
         </p>
-        <Button>
+        <Button type="submit">
           Confirmar
         </Button>
       </Widget.Content>
     </Widget>
   );
 }
+
+QuestionWidget.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  question: PropTypes.object.isRequired,
+  questionIndex: PropTypes.number.isRequired,
+  numberOfQuestions: PropTypes.number.isRequired,
+};
 
 export default QuestionWidget;
