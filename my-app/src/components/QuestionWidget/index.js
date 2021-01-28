@@ -9,6 +9,8 @@ function QuestionWidget({
   questionIndex,
   numberOfQuestions,
 }) {
+  const questionId = `question_${questionIndex}`;
+
   return (
     <Widget>
       <Widget.Header>
@@ -42,18 +44,16 @@ function QuestionWidget({
                 as="label"
                 htmlFor={alternativeId}
               >
-                {alternative}
                 <input
+                //   style={{ display: 'none' }}
                   id={alternativeId}
                   type="radio"
+                  name={questionId}
                 />
+                {alternative}
               </Widget.Topic>
             );
           })}
-
-          {/* <pre>
-            {JSON.stringify(question, null, 4)}
-            </pre> */}
 
           <Button type="submit">
             Confirmar
