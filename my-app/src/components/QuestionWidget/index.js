@@ -8,6 +8,7 @@ function QuestionWidget({
   question,
   questionIndex,
   numberOfQuestions,
+  onSubmit,
 }) {
   const questionId = `question_${questionIndex}`;
 
@@ -35,7 +36,12 @@ function QuestionWidget({
           {question.description}
         </p>
 
-        <form action="">
+        <form
+          onSubmit={(infoDoEvento) => {
+            infoDoEvento.preventDefault();
+            onSubmit();
+          }}
+        >
           {question.alternatives.map((alternative, alternativeIndex) => {
             const alternativeId = `alternative_${alternativeIndex}`;
 
@@ -70,6 +76,7 @@ QuestionWidget.propTypes = {
   question: PropTypes.object.isRequired,
   questionIndex: PropTypes.number.isRequired,
   numberOfQuestions: PropTypes.number.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default QuestionWidget;
