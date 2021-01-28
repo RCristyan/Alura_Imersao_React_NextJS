@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Widget from '../Widget';
 
@@ -35,5 +36,10 @@ function ResultWidget({ quizResult }) {
     </Widget>
   );
 }
+
+ResultWidget.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  quizResult: PropTypes.array.isRequired,
+};
 
 export default ResultWidget;
