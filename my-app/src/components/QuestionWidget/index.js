@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Widget from '../Widget';
 import Button from '../Button';
 import AlternativesForm from '../AlternativesForm';
+import BackLinkArrow from '../BackLinkArrow';
 
 function QuestionWidget({
   question,
@@ -21,6 +22,7 @@ function QuestionWidget({
   return (
     <Widget>
       <Widget.Header>
+        <BackLinkArrow href="/" />
         <h3>
           {`Pergunta ${questionIndex + 1} de ${numberOfQuestions}`}
         </h3>
@@ -107,6 +109,7 @@ QuestionWidget.propTypes = {
   questionIndex: PropTypes.number.isRequired,
   numberOfQuestions: PropTypes.number.isRequired,
   onSubmit: PropTypes.func.isRequired,
+  addResult: PropTypes.func.isRequired,
 };
 
 export default QuestionWidget;
