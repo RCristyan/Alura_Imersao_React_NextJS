@@ -16,6 +16,7 @@ import Link from '../src/components/Link';
 export default function Home() {
   const router = useRouter();
   const [name, setName] = useState('');
+  const quizTitle = db.title;
 
   return (
     <QuizBackground backgroundImage={db.bg}>
@@ -27,7 +28,7 @@ export default function Home() {
         <QuizLogo />
         <Widget>
           <Widget.Header>
-            <h1>The Legend of Zelda</h1>
+            <h1>{quizTitle}</h1>
           </Widget.Header>
           <Widget.Content>
             <form onSubmit={(event) => {
