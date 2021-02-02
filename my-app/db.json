@@ -1,8 +1,20 @@
 {
-    "bg": "https://i2.wp.com/css-tricks.com/wp-content/uploads/2017/06/css-is-awesome-scaled.jpg?resize=1536%2C1208&ssl=1",
-    "title": "Quiz CSS da Alura",
-    "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+    "bg": "https://eskipaper.com/images/pokemon-wallpaper-2.jpg",
+    "title": "Pokémon Quiz",
+    "description": "Teste os seus conhecimentos sobre Pokémon!",
     "questions": [
+      {
+        "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/101.png",
+        "title": "Quem é esse Pokémon?",
+        "description": "Armazena energia elétrica dentro do seu corpo. Mesmo o menor choque pode causar uma explosão gigante.",
+        "answer": 2,
+        "alternatives": [
+          "Mudkip",
+          "Voltorb",
+          "Electrode",
+          "Gengar"
+        ]
+      },
       {
         "image": "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",
         "title": "Como fazer um seletor por id via CSS?",
@@ -24,23 +36,13 @@
            "background: linear-gradient(#e66465, #9198e5);",
            "background: gradient(#e66465, #9198e5);"
         ]
-      },
-      {
-        "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/101.png",
-        "title": "Quem é esse Pokémon?",
-        "description": "Armazena energia elétrica dentro do seu corpo. Mesmo o menor choque pode causar uma explosão gigante.",
-        "answer": 0,
-        "alternatives": [
-          "Mudkip",
-          "Voltorb",
-          "Electrode",
-          "Gengar"
-        ]
       }
     ],
     "external": [
-      ""
-    ],
+    "https://aluraquiz-css.omariosouto.vercel.app/",
+    "https://aluraquiz-devsoutinho.omariosouto.vercel.app/",
+    "https://aluraquiz-marvel.omariosouto.vercel.app/"
+  ],
     "theme": {
       "colors": {
         "primary": "#0d47a1",
