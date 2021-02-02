@@ -16,15 +16,15 @@
         ]
       },
       {
-        "image": "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",
-        "title": "Como fazer um seletor por id via CSS?",
-        "description": "Essa é pra aquecer",
-        "answer": 2,
+        "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png",
+        "title": "Quem é esse Pokémon?",
+        "description": "Cospe fogo tão quente que é capaz de derreter pedregulho. Pode causar incendios florestais apenas com sopros.",
+        "answer": 3,
         "alternatives": [
-          ".elemento",
-          "*elemento",
-          "#elemento",
-          "%elemento"
+          "Infernape",
+          "Growlithe",
+          "Flareon",
+          "Charizard"
         ]
       },
       {
